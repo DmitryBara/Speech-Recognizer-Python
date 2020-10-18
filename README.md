@@ -7,14 +7,14 @@ Python, Yandex API
 https://cloud.yandex.ru/docs/speechkit/stt/request
 
 
-__RUN__
+--RUN--
 Сборка image и запуск docker контейнера вместе с приложением:
 docker-compose up
 
 Приложение станет доступно по адресу localhost:8000/recognize_interface/
 
 
-__TEST__
+*TEST
 Для запуска тестов, войдите в интерактивную консоль docker контейнера:
 docker exec -it django_app_dmitry /bin/sh
 docker exec -it django_app_dmitry /bin/bash (optional)
@@ -23,7 +23,7 @@ docker exec -it django_app_dmitry /bin/bash (optional)
 python manage.py test
 
 
-__В ближайщем будущем будет реализовано/улучшено__
+**В ближайщем будущем будет реализовано/улучшено
 1. Интерфейс по загрузке файлов будет содержать checkbox для предпочтительного языка 
 2. Очередь задач
 3. Обращение к другому внешнему API, в случае торможения яндекса
@@ -31,7 +31,7 @@ __В ближайщем будущем будет реализовано/улу�
 
 
 
-__Postman request example__
+***Postman request example__
 POST /recognize_api/?secret_key=aaa12&lang=ru-RU HTTP/1.1
 Host: localhost:8000
 Cookie: csrftoken=4UfRg3vaLdXtVXwVvSivfRq4qP2bEpoPS8d0fyaLcMaeMoxx9MqSYdOOxQ019LqiContent-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
