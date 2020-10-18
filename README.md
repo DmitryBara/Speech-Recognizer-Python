@@ -16,6 +16,7 @@ https://cloud.yandex.ru/docs/speechkit/stt/request
 
 # Test
 Для запуска тестов, войдите в интерактивную консоль docker контейнера:
+
 `docker exec -it django_app_dmitry /bin/sh`
 
 `docker exec -it django_app_dmitry /bin/bash` (optional)
