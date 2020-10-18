@@ -9,18 +9,18 @@ https://cloud.yandex.ru/docs/speechkit/stt/request
 
 # Run
 Сборка image и запуск docker контейнера вместе с приложением:
-docker-compose up
+`docker-compose up`
 
-Приложение станет доступно по адресу localhost:8000/recognize_interface/
+Приложение станет доступно по адресу http://127.0.0.1:8000/recognize_interface/
 
 
 # Test
 Для запуска тестов, войдите в интерактивную консоль docker контейнера:
-docker exec -it django_app_dmitry /bin/sh
-docker exec -it django_app_dmitry /bin/bash (optional)
+`docker exec -it django_app_dmitry /bin/sh`
+`docker exec -it django_app_dmitry /bin/bash` (optional)
 
 Затем запустите тесты:
-python manage.py test
+`python manage.py test`
 
 
 В ближайщем будущем будет реализовано/улучшено
