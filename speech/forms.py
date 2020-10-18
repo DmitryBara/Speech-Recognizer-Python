@@ -1,29 +1,31 @@
+import os
 from django import forms
-from django.core.files.images import get_image_dimensions
-# from .models import Article
+
 
 class AudioForm(forms.Form):
-
-    # class Meta:
-    #     model = Article
-    #     fields = ('title', 'text', 'image', 'hiden')
-
 
     def __init__(self, *args, **kwargs):
         super(AudioForm, self).__init__(*args, **kwargs)
 
-    title = forms.CharField(max_length=50)
-    # image = forms.ImageField()
     audio = forms.FileField()
+    lang = forms.CharField(max_length=5)
 
-    def clean_image(self):
-        image = self.cleaned_data.get('image')
-        if not image:
-            raise forms.ValidationError('Изображение не загружено')
-        if not self.article_id:
-            w, h = get_image_dimensions(image)
-            if w < 200 or h < 200:
-                raise forms.ValidationError('Минимальное разрешение изображения 200x200')
-            if image.size > 5242880:
-                raise forms.ValidationError('Максимальный допустимый рамер фаила 5 MB')
-        return image
+    def clean_audio(self):
+        audio = self.cleaned_data.get('audio')
+        if audio:
+            if audio.size > 5 * 1024 * 1024:
+                raise forms.ValidationError("Audio file is too large ( > 5mb )")
+            if not audio.content_type in ['audio/ogg']:
+                raise forms.ValidationError("Content-Type is not audio/ogg")
+            if not os.path.splitext(audio.name)[1] in [".ogg", ".opus"]:
+                raise forms.ValidationError("Yandex API accept only .ogg, .opus format ")
+            return audio
+        else:
+            raise forms.ValidationError("Couldn't read uploaded audio")
+
+    def clean_lang(self):
+        lang = self.cleaned_data.get('lang')
+        if lang:
+            if lang not in ["ru-RU", "en-US"]:
+                raise forms.ValidationError("Укажите язык из списка доступных")
+            return lang

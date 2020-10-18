@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Добавить статью {% endblock %}
-
+{% block title %} Upload File {% endblock %}
 
 {% block content %}
 
@@ -25,35 +24,14 @@
 
 <div class='add'>
 	<h1>Добавьте аудиофаил </h1>
-	<div class="title">
-		{{ form.title }}
-		<span>
-			<input type="submit" class="btn btn-primary mb-2" value="Опубликовать">
-		</span>
-	</div>
-	{{ form.audio }}
-<!--	<div class="article">-->
-<!--		{{ form.text }}-->
-<!--		<div class="brd" id="image-preview">-->
-<!--			<h3> Загрузить изображение </h3>-->
-<!--			  	<img src="" alt="loading..." id="image-preview__image">-->
-<!--			  	&lt;!&ndash; -&#45;&#45; For JavaScript. All Atrributes (class,id...) has been set in forms.py &#45;&#45;&#45;&#45; &ndash;&gt;-->
-<!--			    &lt;!&ndash; <input required type="file" class="input-file" name="inpFile" accept=".png, .jpg, .jpeg" id="inpFile"> &ndash;&gt;-->
-
-<!--			    {{ form.image }}-->
-
-<!--			    <label for="inpFile" class="btn btn-primary" id="image-preview__label">-->
-<!--			      <h5>Файл</h5>-->
-<!--			    </label>-->
-<!--			    <img src="{% static 'images/close.png' %}" id='image-remove'>-->
-<!--			    <span id="progress-status" style="color: #CDCDCD; font-size:15px; display:none"></span>-->
-<!--		</div>-->
-<!--	</div>-->
+    <div style="margin: 5px">{{ form.audio }}</div>
+    <div style="margin: 5px">{{ form.lang }} Укажите язык (доступные значения ru-RU, en-US)</div>
+    <div style="margin: 5px">
+        <!--В будущем сделать выбор языка через checkbox-->
+        <input type="submit" class="btn btn-primary mb-2" value="Let's Go!">
+    </div>
 </div>
 
 </form>
-
-<script src="{% static 'js/uploadToAWS.js' %}">OLOLO</script>
-<script src="{% static 'js/imgSendChangeBlock.js' %}">BLABLABLA</script>
 
 {% endblock %}

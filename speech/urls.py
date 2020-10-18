@@ -2,6 +2,6 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-	path('recognize/', views.recognize, name = 'recognize'),
-	# path("login/", views.login, name="login")
+	path('recognize_interface/', views.recognize_interface, name="recognize_interface"),
+	path("recognize_api/", views.recognize_api, name="recognize_api")
 ]
