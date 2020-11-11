@@ -35,13 +35,9 @@ https://cloud.yandex.ru/docs/speechkit/stt/request
 
 __Postman request example__
 
+```
 POST /recognize_api/?secret_key=aaa12&lang=ru-RU HTTP/1.1
 Host: localhost:8000
-Cookie: csrftoken=4UfRg3vaLdXtVXwVvSivfRq4qP2bEpoPS8d0fyaLcMaeMoxx9MqSYdOOxQ019LqiContent-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-
-----WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="audio"; filename="test2.ogg"
-Content-Type: <Content-Type header here>
-
-(data)
-----WebKitFormBoundary7MA4YWxkTrZu0gW
+(binary-data)
+```
